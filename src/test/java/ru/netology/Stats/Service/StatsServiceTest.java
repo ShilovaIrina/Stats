@@ -31,11 +31,10 @@ public class StatsServiceTest {
         StatsService service = new StatsService();
 
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expectedMonth1 = 7;
-        int expectedMonth2 = 9;
+        int expectedMonth1 = 8;
         long actualMonth = service.maxSales(sales);
 
-        Assertions.assertEquals(expectedMonth1, expectedMonth2, actualMonth);
+        Assertions.assertEquals(expectedMonth, actualMonth);
     }
 
     @Test
