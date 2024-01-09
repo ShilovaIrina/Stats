@@ -31,11 +31,10 @@ public class StatsServiceTest {
         StatsService service = new StatsService();
 
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expectedMonth1 = 7;
-        int expectedMonth2 = 9;
+        int expectedMonth = 8;
         long actualMonth = service.maxSales(sales);
 
-        Assertions.assertEquals(expectedMonth1, expectedMonth2, actualMonth);
+        Assertions.assertEquals(expectedMonth, actualMonth);
     }
 
     @Test
@@ -50,31 +49,27 @@ public class StatsServiceTest {
     }
 
     @Test
-    public void numberOfMonthsBelowAverage() {
+    public void numberBelowAverage() {
         StatsService service = new StatsService();
 
         int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int average = 15;
         int expected = 5;
-        int actual = service.numberOfMonthsInWhichSalesWereBelowAverage(sales, average);
-
+        int actual = service.numberBelowAverage(sales);
         Assertions.assertEquals(expected, actual);
 
     }
 
     @Test
-    public void numberOfMonthsAboveAverage() {
+    public void numberAboveAverage() {
         StatsService service = new StatsService();
 
         int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int average = 15;
         int expected = 5;
-        int actual = service.numberOfMonthsInWhichSalesWereAboveAverage(sales, average);
+        int actual = service.numberAboveAverage(sales);
 
         Assertions.assertEquals(expected, actual);
 
     }
-
 }
 
 
