@@ -4,20 +4,20 @@ import java.util.Arrays;
 
 public class StatsService {
 
-    public int calculateSumSales(int[] sales) {
+    public int calculateSumSales(long[] sales) {
         int sum = 0;
 
-        for (int sale : sales) {
+        for (long sale : sales) {
             sum += sale;
         }
         return sum;
     }
 
 
-    public int averageSalesMonth(int[] sales) {
+    public int averageSalesMonth(long[] sales) {
         int sumYear = 0;
 
-        for (int sale : sales) {
+        for (long sale : sales) {
             sumYear += sale;
         }
         return sumYear / sales.length;
@@ -46,29 +46,25 @@ public class StatsService {
         return minMonth + 1; // месяца нумеруются с 1, а индексы массива с 0, нужно сдвинуть ответ на 1
     }
 
-    public int numberBelowAverage(int[] sales) {
+    public int numberMonthBelowAverage(long[] sales) {
         int count = 0;
-
-        int average = Arrays.stream(sales).sum() / sales.length;
-        for (int sale : sales) {
-            if (sale < average) {
+        long averageSale = averageSalesMonth(sales);
+        for (long sale : sales) {
+            if (sale < averageSale) {
                 count++;
             }
         }
-
         return count;
     }
 
-    public int numberAboveAverage(int[] sales) {
+    public int numberMonthAboveAverage(long[] sales) {
         int count = 0;
-
-        int average = Arrays.stream(sales).sum() / sales.length;
-        for (int sale : sales) {
-            if (sale > average) {
+        long averageSale = averageSalesMonth(sales);
+        for (long sale : sales) {
+            if (sale > averageSale) {
                 count++;
             }
         }
-
         return count;
     }
 }
